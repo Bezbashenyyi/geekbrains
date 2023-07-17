@@ -282,6 +282,6 @@ git push <имя_remote> :<имя_ветки>
 Нам остаётся только дождаться решения владельца.
 
 [ссылка_на_скачивание]: https://git-scm.com/downloads
-[Изображение_логотипа]: pict\git_logo.png
-[снимок экрана редактора config]: pict\edit.jpg
+[Изображение_логотипа]: pict/git_logo.png
+[снимок экрана редактора config]: pict/edit.jpg
 [ссылка на GitHub]: https://github.com
