@@ -62,7 +62,7 @@ bool CheсkDigNum(int inNum)
         Console.WriteLine($"В числе {inNum} третья цифра отсутствует.");
         return false;
     }
-    else return true;
+    return true;
 }
 
 // Метод, который вернёт третью цифру введённого числа будет работать
@@ -98,4 +98,53 @@ if (CheсkDigNum(number))
 6 -> да
 7 -> да
 1 -> нет
+
+
+// Для ввода воспользуемся методом, написанным для задачи 10
+
+int WriteWait(string outLine)
+{
+    Console.Write(outLine);
+    int inNumber = Convert.ToInt32(Console.ReadLine());
+    return inNumber;
+}
+
+// Создадим метод, который вернёт для выходного дня
+// значение «истина» (true), а для рабочего «ложь» (false).
+
+bool Weekend(int digit)
+{
+    if (digit < 6)
+    {
+        return false;
+    }
+    return true;
+}
+
+// Запрашиваем и получаем день недели (его номер).
+
+Repeat:
+int day = WriteWait("Введите день недели от 1 до 7: ");
+
+// Проверяем, является ли введённая цифра днём недели.
+// Если нет, то сообщаем об этом пользователю и повторяем
+// приглашение.
+
+if (day < 1 || day > 7)
+{
+    Console.WriteLine("Вы ошиблись с цифрами.");
+    goto Repeat;
+}
+
+// Если попали в пределы недели можно выводить,
+// будет ли пользователь отдыхать в этот день.
+
+if (Weekend(day))
+{
+    Console.WriteLine("Сегодня выходной! Работать вредно.");
+}
+else
+{
+    Console.WriteLine("Вам на работу.");
+}
 */
