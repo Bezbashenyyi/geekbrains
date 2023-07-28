@@ -1,4 +1,18 @@
-﻿/*
+﻿// Семинар 3.
+
+// Теория.
+
+// Возведение в степень Math.Pow(число, степень)
+// Извлечение квадратного корня Math.Sqrt(число)
+// Округление до N знаков после запятой Math.Round(double число, N)
+
+// Примеры:
+// Console.WriteLine(Math.Pow(5, 2));
+// Console.WriteLine(Math.Sqrt(25));
+// Console.WriteLine(Math.Round(Math.Sqrt(24), 2));
+
+
+/*
 // Напишите программу, которая принимает на вход координаты
 // точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт номер четверти
 // плоскости, в которой находится эта точка.
@@ -50,7 +64,3 @@ int WriteWait(string outLine)
 
 // Напишите программу, которая принимает на вход координаты
 // двух точек и находит расстояние между ними в 2D пространстве.
-
-// Console.WriteLine(Math.Pow(5, 2));
-// Console.WriteLine(Math.Sqrt(25));
-// Console.WriteLine(Math.Round(Math.Sqrt(24), 2));
