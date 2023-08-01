@@ -11,6 +11,25 @@
 // Console.WriteLine(Math.Sqrt(25));
 // Console.WriteLine(Math.Round(Math.Sqrt(24), 2));
 
+/*
+// Напишите программу, которая по заданному номеру четверти
+// показывает диапазон возможных координат точек в этой четверти (x и y).
+
+void WriteRange(int quad)
+{
+    if (quad < 1 || quad > 4) Console.WriteLine("Ошибочные данные!");
+    else if (quad == 1) Console.WriteLine("x > 0 и y > 0");
+    else if (quad == 2) Console.WriteLine("x < 0 и y > 0");
+    else if (quad == 3) Console.WriteLine("x < 0 и y < 0");
+    else Console.WriteLine("x > 0 и y < 0");
+}
+
+Console.Write("Введите номер квадранта: ");
+int quadrant = Convert.ToInt32(Console.ReadLine());
+
+WriteRange(quadrant);
+*/
+
 
 /*
 // Напишите программу, которая принимает на вход координаты
@@ -45,12 +64,13 @@ if (ChekNull(x, y))
     goto Repeat;
 }
 
-else Console.WriteLine ($"Координаты лежат в {Quad(x, y)} квадранте");
+else Console.WriteLine ($"Координаты лежат в {Quad(x, y)} квадранте.");
 */
 
-
+/*
 // Напишите программу, которая принимает на вход число (N)
 // и выдаёт квадраты чисел от 1 до N.
+*/
 
 int WriteWait(string outLine)
 {
