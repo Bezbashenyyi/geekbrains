@@ -61,7 +61,44 @@ else Console.WriteLine($"Число {number} – не палиндром.");
 // A (3,6,8); B (2,1,-7), -> 15.84
 // A (7,-5, 0); B (1,-1,9) -> 11.53
 
+/*
 // Задача 23
 // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
+
+
+// Как обычно, метод приглашения и ввода 
+
+int WriteWait(string outLine)
+{
+    Console.Write(outLine);
+    int inNumber = Convert.ToInt32(Console.ReadLine());
+    return inNumber;
+}
+
+// Поместим вывод результата внутрь тела метода.
+// В связи с этим, нам не нужно, чтобы он что-либо
+// возвращал основной программе. Поэтому используем
+// тип «void».
+
+void Cubing(int num)
+{
+    int count = 1;
+    while (count <= num)
+    {
+        Console.WriteLine($"{count} – {Math.Pow(count, 3)}");
+        count++;
+    }
+}
+
+Repeat:
+int number = WriteWait("Введите целое положительное число: ");
+if (number < 1)
+{
+    Console.WriteLine("Пожалуйста, будьте внимательны!");
+    goto Repeat;
+}
+Console.WriteLine("Таблица чисел от 1 до " + number + ":");
+Cubing(number);
+*/
