@@ -1,26 +1,26 @@
 ﻿// Напишите программу, которая принимает на вход число (А)
 // и выдаёт сумму чисел от 1 до А.
 
-int WriteWait(string outLine)
-{
-    Console.Write(outLine);
-    int inNumber = Convert.ToInt32(Console.ReadLine());
-    return inNumber;
-}
+// int WriteWait(string outLine)
+// {
+//     Console.Write(outLine);
+//     int inNumber = Convert.ToInt32(Console.ReadLine());
+//     return inNumber;
+// }
 
-int Sum(int num)
-{
-    int accum = 0, count = 1;
-    while (count <= num)
-    {
-        accum += count;
-        count++;
-    }
-    return accum;
-}
+// int Sum(int num)
+// {
+//     int accum = 0, count = 1;
+//     while (count <= num)
+//     {
+//         accum += count;
+//         count++;
+//     }
+//     return accum;
+// }
 
-int number = WriteWait("Введите число: ");
-Console.WriteLine($"Сумма равна: {Sum(number)}");
+// int number = WriteWait("Введите число: ");
+// Console.WriteLine($"Сумма равна: {Sum(number)}");
 
 
 // Напишите программу, которая принимает на вход

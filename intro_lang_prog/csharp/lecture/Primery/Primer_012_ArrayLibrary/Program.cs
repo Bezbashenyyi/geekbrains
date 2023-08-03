@@ -8,7 +8,8 @@ void FillArray(int[] collection)
     int index = 0;
     while (index < length)
     {
-        collection[index] = new Random().Next(1, 10); // По очереди кладём в массив collection случайные числа в диапазоне от 1 до 9
+        collection[index] = new Random().Next(1, 10);   // По очереди кладём в массив collection случайные
+                                                        // числа в диапазоне от 1 до 9
         index++;
     }
 } 

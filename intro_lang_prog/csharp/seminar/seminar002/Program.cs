@@ -85,3 +85,32 @@ Console.WriteLine($"В числе {randNumber} наибольшая цифра: 
 // Напишите программу, которая принимает на вход два числа и проверяет,
 // является ли одно число квадратом другого.
 */
+
+// int WriteWait(string outLine)
+// {
+//     Console.Write(outLine);
+//     int inNumber = Convert.ToInt32(Console.ReadLine());
+//     return inNumber;
+// }
+
+// bool Square(int num1, int num2)
+// {
+//     if (num1 == num2 * num2)
+//     {
+//         Console.WriteLine($"Число {num1} является квадратом числа {num2}.");
+//         return true;
+//     }
+
+//     if (num2 == num1 * num1)
+//     {
+//         Console.WriteLine($"Число {num2} является квадратом числа {num1}.");
+//         return true;
+//     }
+
+//     return false;
+// }
+
+// int number1 = WriteWait("Введите первое число: ");
+// int number2 = WriteWait("Введите второе число: ");
+
+// if (!(Square(number1, number2))) Console.WriteLine("Числа не являются квадратами друг друга.");
