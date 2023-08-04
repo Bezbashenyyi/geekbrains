@@ -70,7 +70,7 @@ else Console.WriteLine ($"Координаты лежат в {Quad(x, y)} ква
 /*
 // Напишите программу, которая принимает на вход число (N)
 // и выдаёт квадраты чисел от 1 до N.
-*/
+
 
 int WriteWait(string outLine)
 {
@@ -79,8 +79,46 @@ int WriteWait(string outLine)
     return inNumber;
 }
 
+void Square(int num)
+{
+    for (int count = 1; count <= num; count++)
+    {
+        Console.WriteLine($"{count} – {count * count}");
+    }
+}
 
+Repeat:
+int number = WriteWait("Пожалуйста, введите целое положительное число: ");
+if (number <= 0)
+{
+    Console.WriteLine("Ошибочный ввод.");
+    goto Repeat;
+}
+Square(number);
+*/
 
-
+/*
 // Напишите программу, которая принимает на вход координаты
 // двух точек и находит расстояние между ними в 2D пространстве.
+
+
+int WriteWait(string outLine)
+{
+    Console.Write(outLine);
+    int inNumber = Convert.ToInt32(Console.ReadLine());
+    return inNumber;
+}
+
+void Distance(int xA, int yA, int xB, int yB)
+{
+    double hypotenuse = Math.Sqrt(Math.Pow((xA - xB), 2) + Math.Pow((yA - yB), 2));
+    Console.WriteLine($"Расстояние между точками A и B равно: {Math.Round(hypotenuse, 2)}");
+}
+
+int abscA = WriteWait("Введите абсциссу точки A: ");
+int ordA = WriteWait("Введите ординату точки A: ");
+int abscB = WriteWait("Введите абсциссу точки B: ");
+int ordB = WriteWait("Введите ординату точки B: ");
+
+Distance(abscA, ordA, abscB, ordB);
+*/
