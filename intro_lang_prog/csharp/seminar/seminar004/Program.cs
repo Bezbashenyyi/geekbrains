@@ -73,3 +73,36 @@
 
 // int number = WriteWait("Введите число: ");
 // Console.WriteLine(Mult(number));
+
+/*
+ПРО МАССИВЫ
+
+
+int[] CreateRandomArray(int size, int minValue, int maxValue)
+{
+    int[] array = new int[size]; // инициализация массива: в квадратных скобках всегда указывается
+                                 // размер массива
+    for (int i = 0; i < size; i++)
+        array[i] = new Random().Next(minValue, maxValue + 1);
+
+    return array;
+}
+
+void WriteArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+
+    Console.WriteLine();
+}
+
+Console.Write("Введите количество элементов массива: ");
+int length = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите минимальное значение элемента массива: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимальное значение элемента массива: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[] myArray=CreateRandomArray(length, min, max);
+WriteArray(myArray);
+*/
