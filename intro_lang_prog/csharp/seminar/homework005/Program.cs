@@ -148,7 +148,9 @@ SumOddPoz(numOfElem, array); // выводим сумму
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между
 // максимальным и минимальным элементом массива.
 // [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
-*/
+
+
+// Целочисленный метод, приглашающий пользователя к вводу данных:
 
 int WriteWait(string outLine)
 {
@@ -157,13 +159,70 @@ int WriteWait(string outLine)
     return inNumber; // возвращаем полученное число
 }
 
+// Метод, приглашающий пользователя к вводу данных двойной точности:
+
+double DoubElem(string outLine)
+{
+    Console.Write(outLine); // выводим предлагаемую строку
+    double inNumber = Convert.ToDouble(Console.ReadLine()); // получаем от пользователя число
+    return inNumber; // возвращаем полученное число
+}
+
+// Метод, введённый, чтобы лишний раз не писать запрос количества элементов
+
+int EnterNumElem()
+{
+Repeat:
+    int numElem = WriteWait("\nВведите количество элементов массива: ");
+    if (numElem <= 0) // если пользователь ввёл число меньше 1-цы предупреждаем его об этом
+                      // и просим повторить ввод
+    {
+        Console.WriteLine("Количество элементов массива не может быть меньше 1!");
+        goto Repeat;
+    }
+
+    return numElem;
+}
+
+// Генерируем случайный набор вещественных чисел с помощью
+// Random().NextDouble(). Т.к. при этом генерируются числа
+// с плавающей запятой, умножаем результат на 100 и округляем
+// до двух знаков: Math.Round(new Random().NextDouble() * 100, 2).
+// Кроме того, случайным образом будем менять знак числа. Для
+// этого создадим массив множителей: int[] mulArray = { -1, 1 },
+// а индекс элемента «j» также получим случайным образом:
+// int j = new Random().Next(0, 2)
+
 double[] RandArr(int elem)
 {
     double[] arr = new double[elem]; // резервируем память под массив
+
     for (int i = 0; i < elem; i++)
+    {
+        int[] mulArray = { -1, 1 }; // задаём массив множителей для случайной смены знака числа
+
+        int j = new Random().Next(0, 2); // получаем индекс множителя
         arr[i] = Math.Round(new Random().NextDouble() * 100, 2); // программа заполняет массив случайными числами
+        arr[i] *= mulArray[j]; // меняем, или оставляем знак элемента массива
+    }
+
     return arr;
 }
+
+// Метод, создающий массив из вводимых пользователем чисел
+
+double[] UserArr(int elem)
+{
+    double[] userArray = new double[elem];
+
+    for (int i = 0; i < elem; i++)
+        userArray[i] = DoubElem($"Введите {i + 1}-й элемент массива: ");
+
+    return userArray;
+}
+
+
+// Метод, выводящий созданный массив на монитор
 
 void OutArr(int elem, double[] whatArr)
 {
@@ -173,20 +232,51 @@ void OutArr(int elem, double[] whatArr)
     Console.WriteLine(whatArr[elem - 1] + "]"); // выводим последний элемент массива без точки с запятой, но с закрывающей скобкой
 }
 
+// Метод, находящий минимальное и максимальное число в массиве.
+// Возвращает массив из двух элементов {максимальный, минимальный}
 
-Repeat:
-int numOfElem = WriteWait("Введите количество элементов массива: ");
-if (numOfElem <= 0) // если пользователь ввёл число меньше 1-цы предупреждаем его об этом
-                    // и просим повторить ввод
+double[] MaxMin(int elem, double[] whatArr)
 {
-    Console.WriteLine("Количество элементов массива не может быть меньше 1!");
-    goto Repeat;
+    double[] maxMin = new double[2]; // создаём массив для возврата значений
+    double maxElem = whatArr[0]; // максимальному и минимальному для начала присваиваем первый элемент массива
+    double minElem = maxElem;
+
+    for (int i = 1; i < elem; i++)
+    {
+        if (maxElem < whatArr[i]) // если текущий максимальный оказался меньше очередного элемента
+            maxElem = whatArr[i]; // массива, то заменяем максимальный значением этого элемента
+        else                      // в противном случае проверяем минимальное значение
+        {
+            if (minElem > whatArr[i]) // если текущий минимальный оказался больше очередного элемента
+                minElem = whatArr[i]; // массива, то заменяем минимальный значением этого элемента
+        }
+
+        maxMin[0] = maxElem; // заносим максимальный и минимальный в массив для возврата
+        maxMin[1] = minElem;
+    }
+
+    return maxMin;
 }
 
-// double min = WriteWait("Введите минимальное значение элемента массива: ");
-// double max = WriteWait("Введите максимальное значение элемента массива: ");
-Console.WriteLine();
+Console.WriteLine("\n1-й вариант:\nПрограмма генерирует массив заданного размера из вещественных чисел.");
+int numOfElem = EnterNumElem(); // запрашиваем и получаем количество генерируемых элементов
 
-double[] array = RandArr(numOfElem); // получаем сгенерированный массив
+double[] genArray = RandArr(numOfElem); // получаем сгенерированный массив
 Console.Write("Сгенерированный массив: ");
-OutArr(numOfElem, array);
+OutArr(numOfElem, genArray);
+double[] minMaxData = MaxMin(numOfElem, genArray);
+
+// При выводе результата используем «Round», потому что иногда выводится много знаков после запятой
+Console.WriteLine($"\nРазность между элементом с максимальным значением {minMaxData[0]}\n"
++ $"и элементом с минимальным значением {minMaxData[1]} равна: {Math.Round(minMaxData[0] - minMaxData[1], 2)}");
+
+Console.WriteLine("\n2-ой вариант:\nПользователь вводит массив.");
+int entNumOfElem = EnterNumElem();
+
+double[] userEntArray = UserArr(entNumOfElem);
+Console.WriteLine("Полученный массив: ");
+OutArr(entNumOfElem, userEntArray);
+double[] minMaxUser = MaxMin(entNumOfElem, userEntArray);
+Console.WriteLine($"\nРазность между элементом с максимальным значением {minMaxUser[0]}\n"
++ $"и элементом с минимальным значением {minMaxUser[1]} равна: {Math.Round(minMaxUser[0] - minMaxUser[1], 2)}");
+*/
