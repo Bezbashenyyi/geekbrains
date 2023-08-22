@@ -2,7 +2,7 @@
 // Задача 41:
 // Пользователь вводит с клавиатуры M чисел.
 // Посчитайте, сколько чисел больше 0 ввёл пользователь.
-*/
+
 
 int WriteWait(string outLine)
 {
@@ -29,3 +29,46 @@ void Counting(int inTotal)
 Console.WriteLine("Программа подсчитывает количество введённых положительных чисел.\n");
 int howMany = WriteWait("Сколько чисел собираетесь ввести? ");
 Counting(howMany);
+*/
+
+/*
+// Задача 43:
+// Напишите программу, которая найдёт точку пересечения двух прямых,
+// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
+// значения b1, k1, b2 и k2 задаются пользователем.
+*/
+
+// Данная задача решается как система двух уравнений.
+// Применив вычитание из первого уравнения второго, а
+// также несложные преобразования, получим для координаты «x»
+// x = (b2 - b1) / (k1 - k2). Затем, подставив во второе
+// уравнение полученное значение «x», найдём координату
+// «y» точки пересечения двух прямых.
+
+float WriteWait(string outLine)
+{
+    Console.Write(outLine);
+    float inNumber = Convert.ToSingle(Console.ReadLine());
+    return inNumber;
+}
+
+void СalculationIntersection(float k1, float k2, float b1, float b2)
+{
+    if (k1 - k2 == 0 && b2 - b1 == 0)
+        Console.WriteLine("Прямые совпадают.");
+    else if (k1 - k2 == 0 && b2 - b1 != 0)
+        Console.WriteLine("Прямые параллельны");
+    else
+    {
+        float x = (b2 - b1) / (k1 - k2);
+        float y = x * k2 + b2;
+        Console.WriteLine($"Прямые пересекаются в точке с координатами ({Math.Round(x, 2)}; {Math.Round(y, 2)}).");
+    }
+}
+
+float inK1 = WriteWait("Введите коэффициент k первой прямой: ");
+float inB1 = WriteWait("Введите смещение b первой прямой: ");
+float inK2 = WriteWait("Введите коэффициент k второй прямой: ");
+float inB2 = WriteWait("Введите смещение b второй прямой: ");
+
+СalculationIntersection(inK1, inK2, inB1, inB2);
